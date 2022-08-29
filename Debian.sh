@@ -18,6 +18,11 @@ echo "============================="
 echo "   installing xrdp"
 echo "============================="
 sudo apt-get install xrdp
+echo "============================="
+echo "     setting up port"
+echo "============================="
+sudo apt-get install ufw
+sudo ufw allow 3389
 clear
 echo "============================="
 echo "         adding user"
@@ -28,3 +33,4 @@ sudo usermod -aG sudo,adm desktop
 echo " ________      _________        ________"
 echo "| _______ \   | ________ \     |  ______ \"
 echo "| |      | |  | |       | |    | |      | |"
+echo "| |______/ /  | |       | |    | |______| |"
