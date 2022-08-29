@@ -17,7 +17,7 @@ clear
 echo "============================="
 echo "   installing xrdp"
 echo "============================="
-sudo apt-get install xrdp
+sudo apt-get install xrdp -y
 echo "============================="
 echo "     setting up port"
 echo "============================="
