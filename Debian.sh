@@ -1,9 +1,29 @@
-sudo apt-get update
-sudo apt-get -y install lxde > /dev/null 2>&1
-sudo apt-get install xrdp -y > /dev/null 2>&1
 clear
+echo "============================="
+echo "   updating, please wait"
+echo "============================="
+sudo apt-get update
+clear
+echo "============================="
+echo "   updgrading, please wait"
+echo "============================="
+sudo apt-get upgrade
+clear
+echo "============================="
+echo "      installing lxde"
+echo "============================="
+sudo apt-get -y install lxde
+clear
+echo "============================="
+echo "   installing xrdp"
+echo "============================="
+sudo apt-get install xrdp
+clear
+echo "============================="
+echo "         adding user"
+echo "============================="
 sudo adduser desktop --gecos "First Last,RoomNumber,WorkPhone,HomePhone" --disabled-password
 echo "desktop:Debian" | sudo chpasswd
 sudo usermod -aG sudo,adm desktop
-echo "_______     ________        ________"
-echo "_______ \   ________ \     |"
+echo " ________      _________        ________"
+echo "| _______ \   | ________ \     |  ______ \"
