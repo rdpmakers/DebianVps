@@ -12,7 +12,7 @@ clear
 echo "============================="
 echo "      installing lxde"
 echo "============================="
-sudo apt-get -y install lxde
+sudo apt-get install lxde -y
 clear
 echo "============================="
 echo "   installing xrdp"
