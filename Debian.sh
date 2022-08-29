@@ -27,3 +27,4 @@ echo "desktop:Debian" | sudo chpasswd
 sudo usermod -aG sudo,adm desktop
 echo " ________      _________        ________"
 echo "| _______ \   | ________ \     |  ______ \"
+echo "| |      | |  | |       | |    | |      | |"
