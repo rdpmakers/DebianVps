@@ -7,7 +7,7 @@ clear
 echo "============================="
 echo "   updgrading, please wait"
 echo "============================="
-sudo apt-get upgrade
+sudo apt-get upgrade -y
 clear
 echo "============================="
 echo "      installing lxde"
