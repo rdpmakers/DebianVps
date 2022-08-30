@@ -13,7 +13,7 @@ echo "============================="
 echo "      installing CRD"
 echo "============================="
 wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
-sudo ./chrome-remote-desktop_current_amd64.deb
+sudo apt install ./chrome-remote-desktop_current_amd64.deb
 echo "========================================================="
 echo " get crp from: https://remotedesktop.google.com/headless"
 echo "      paste the crp on command then setup your rdp"
