@@ -9,11 +9,14 @@ echo "      installing lxde"
 echo "============================="
 sudo apt-get install lxde -y
 clear
+clear
 echo "============================="
 echo "      installing CRD"
 echo "============================="
 wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
-sudo apt install ./chrome-remote-desktop_current_amd64.deb
+sudo apt install ./chrome-remote-desktop_current_amd64.deb -y
+clear
+clear
 echo "============================="
 echo "         adding user"
 echo "============================="
@@ -27,3 +30,4 @@ echo "      paste the crp on command then setup your rdp"
 echo "========================================================="
 echo " note: use this password if you are using a 'sudo' command : desktop"
 su desktop
+cd
