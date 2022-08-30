@@ -29,5 +29,6 @@ echo " get crp from: https://remotedesktop.google.com/headless"
 echo "      paste the crp on command then setup your rdp"
 echo "========================================================="
 echo " note: use this password if you are using a 'sudo' command : desktop"
+echo " note: don't close the connection untill CRD get online"
 su desktop
 cd
