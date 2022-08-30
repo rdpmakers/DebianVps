@@ -26,6 +26,13 @@ wget https://www.playonlinux.com/script_files/PlayOnLinux/4.3.4/PlayOnLinux_4.3.
 clear
 clear
 echo "============================="
+echo "   Installing PlayOnLinux"
+echo "============================="
+sudo dpkg -i PlayOnLinux_4.3.4.deb
+sudo apt install -f
+clear
+clear
+echo "============================="
 echo "     getting version info"
 echo "============================="
 playonlinux --version
