@@ -9,7 +9,7 @@ clear
 echo "============================="
 echo "       installing GUI"
 echo "============================="
-sudo apt install ubuntu-desktop
+sudo apt install lxde -y
 clear
 clear
 echo "============================="
