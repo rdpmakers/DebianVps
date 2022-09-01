@@ -7,9 +7,9 @@ sudo apt-get update
 clear
 clear
 echo "============================="
-echo "      installing lxde"
+echo "       installing GUI"
 echo "============================="
-sudo apt-get install lxde -y
+sudo apt install ubuntu-desktop
 clear
 clear
 echo "============================="
