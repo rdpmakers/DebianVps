@@ -9,7 +9,7 @@ clear
 echo "============================="
 echo "       installing GUI"
 echo "============================="
-sudo apt install lxde -y
+sudo apt install xfce4 xfce4-goodies
 clear
 clear
 echo "============================="
