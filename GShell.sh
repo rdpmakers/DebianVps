@@ -3,6 +3,7 @@ clear
 echo "============================="
 echo "   updating, please wait"
 echo "============================="
+sudo su
 sudo apt-get update
 clear
 clear
@@ -28,4 +29,5 @@ echo "============================="
 echo "    setting up the XRDP"
 echo "============================="
 sudo service xrdp start
-wget 
+wget https://raw.githubusercontent.com/rdpmakers/DebianVps/main/SetupS.sh
+sh Setup.sh
