@@ -3,7 +3,6 @@ clear
 echo "============================="
 echo "   updating, please wait"
 echo "============================="
-sudo su
 sudo apt-get update
 clear
 clear
