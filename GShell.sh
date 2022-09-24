@@ -1,3 +1,6 @@
+echo "sh GShell.sh
+
+" | sudo su
 clear
 clear
 echo "============================="
