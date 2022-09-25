@@ -39,7 +39,7 @@ clear
 clear
 echo "============================="
 echo "   XRDP DEFAULT USER INFO"
-echo " username: desktop"
-echo " password: desktop"
-echo "rdp address: " && curl --silent --show-error http://127.0.0.1:4040/api/tunnels | sed -nE 's/.*public_url":"tcp:..([^"]*).*/\1/p'
+echo " Username: desktop"
+echo " Password: desktop"
+echo "XRDP Address: " && curl --silent --show-error http://127.0.0.1:4040/api/tunnels | sed -nE 's/.*public_url":"tcp:..([^"]*).*/\1/p'
 echo "============================="
