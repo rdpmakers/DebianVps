@@ -22,3 +22,15 @@ function install_xrdp_pa() {
         service xrdp restart
 }
 
+function create_desktop_user() {
+useradd -s /bin/bash -m desktop
+usermod -a -G sudo desktop
+echo "desktop ALL=(ALL) ALL" >> /etc/sudoers
+echo "desktop
+desktop
+" | passwd desktop
+}
+
+install_xrdp_pa
+
+create_desktop_user
