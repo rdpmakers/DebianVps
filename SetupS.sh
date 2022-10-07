@@ -19,7 +19,7 @@ function install_xrdp_pa() {
         install -t "/var/lib/xrdp-pulseaudio-installer" -D -m 644 *.so
         # systemctl restart dbus
         # systemctl restart pulseaudio
-        systemctl restart xrdp
+        service xrdp restart
         # fix PulseAudio no sound issue at Ubuntu 20.04
         # Issue: https://github.com/neutrinolabs/pulseaudio-module-xrdp/issues/44
         fix_pa_systemd_issue
