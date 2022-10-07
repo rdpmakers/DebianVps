@@ -1,0 +1,17 @@
+<VirtualHost *:80>
+  ServerName cockpit.nrtsx.tk
+  ProxyPreserveHost On
+  ProxyRequests Off
+
+  # allow for upgrading to websockets
+  RewriteEngine On
+  RewriteCond %{HTTP:Upgrade} =websocket [NC]
+  RewriteRule /(.*)           ws://127.0.0.1:9090/$1 [P,L]
+  RewriteCond %{HTTP:Upgrade} !=websocket [NC]
+  RewriteRule /(.*)           http://127.0.0.1:9090/$1 [P,L]
+
+  # Proxy to your local cockpit instance
+  ProxyPass / http://127.0.0.1:9090/
+  ProxyPassReverse / http://127.0.0.1:9090/
+
+</VirtualHost>
