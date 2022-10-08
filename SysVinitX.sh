@@ -26,4 +26,5 @@ echo "desktop ALL=(ALL) ALL" >> /etc/sudoers
 echo "desktop
 desktop
 " | passwd desktop
+service xrdp restart
 
