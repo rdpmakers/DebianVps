@@ -5,7 +5,7 @@ server {
        server_name serverx.nrtsx.tk;
 
        root /var/www/server;
-       index index.html;
+       index index.php index.html;
 
        location / {
                try_files $uri $uri/ =404;
