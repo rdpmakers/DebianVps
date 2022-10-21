@@ -1,7 +1,7 @@
 server {
     listen 80 default_server;
     listen [::]:80 default_server;
-    server_name ssh.nrtsx.tk;
+    server_name execute.nrtsx.tk;
     root /var/www/html;
 
     access_log /var/log/nginx/webssh.access.log;
