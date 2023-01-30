@@ -5,7 +5,7 @@ After=network.target
 [Service]
 User=root
 Group=root
-ExecStart=wssh --fbidhttp=False --port=8080 --address="zssh.baconblx.eu.org"
+ExecStart=wssh --fbidhttp=False --port=80
 
 [Install]
 WantedBy=multi-user.target
