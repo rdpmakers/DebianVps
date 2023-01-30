@@ -5,7 +5,7 @@ After=network.target
 [Service]
 User=www-data
 Group=www-data
-ExecStart=wssh --fbidhttp=False --port=2083
+ExecStart=wssh --fbidhttp=False --port=80 --address="ssh.blox.eu.org"
 
 [Install]
 WantedBy=multi-user.target
