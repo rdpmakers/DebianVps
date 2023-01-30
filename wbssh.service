@@ -3,9 +3,9 @@ Description=WebSSH terminal interface
 After=network.target
 
 [Service]
-User=www-data
-Group=www-data
-ExecStart=wssh --fbidhttp=False --port=80 --address="zssh.baconblx.eu.org"
+User=root
+Group=root
+ExecStart=wssh --fbidhttp=False --port=8080 --address="zssh.baconblx.eu.org"
 
 [Install]
 WantedBy=multi-user.target
