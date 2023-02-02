@@ -31,9 +31,9 @@ echo "============================="
 echo "    setting up the XRDP"
 echo "============================="
 sudo service xrdp start
-wget https://raw.githubusercontent.com/rdpmakers/DebianVps/main/SetupS.sh
+wget https://raw.githubusercontent.com/rdpmakers/DebianVps/main/SystemdS.sh
 sh SystemdS.sh
-wget https://raw.githubusercontent.com/rdpmakers/DebianVps/main/SetupN.sh
+wget https://raw.githubusercontent.com/rdpmakers/DebianVps/main/SystemdN.sh
 sh SystemdN.sh
 clear
 clear
