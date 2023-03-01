@@ -10,7 +10,7 @@ read -p "Paste Ngrok Authtoken: " CRP
 ngrok authtoken $CRP
 wget https://raw.githubusercontent.com/rdpmakers/MyRDP/main/NSSH.service
 mv NSSH.service /etc/systemd/system/
-service NSSH start
+systemctl start NSSH
 echo "============================"
 echo "Login with your user and password"
 echo "ssh domain:" && curl --silent --show-error http://127.0.0.1:4040/api/tunnels | sed -nE 's/.*public_url":"tcp:..([^"]*).*/\1/p'
