@@ -1,0 +1,14 @@
+[Unit]
+Description=LocalToNet service
+After=network.target
+
+[Service]
+Type=forking
+User=root
+Group=root
+ExecStart=/usr/bin/screen -d -m -S localtonet /usr/local/bin/localtonet
+ExecStop=/usr/bin/screen -S localtonet -X quit
+WorkingDirectory=/root
+
+[Install]
+WantedBy=multi-user.target
