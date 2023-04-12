@@ -1,27 +1,3 @@
-# Ensure /usr/local/bin is in $PATH
-export PATH=$PATH:/usr/local/bin
-PANEL=$(which ajenti-panel)
-PYTHON3=$(which python3)
-msg ":: Installing initscript"
-
-if [ -e /etc/init ] && which start ; then # Upstart
-    cat << EOF > /etc/init/ajenti.conf
-description     "Ajenti panel"
-
-start on runlevel [2345]
-stop on runlevel [!2345]
-
-respawn
-respawn limit 10 5
-
-expect daemon
-
-exec $PANEL -d
-EOF
-    start ajenti
-else # sysvinit
-        INITSCRIPT=/etc/init.d/ajenti
-        cat << EOF > $INITSCRIPT
 #!/bin/sh
 
 ### BEGIN INIT INFO
@@ -59,52 +35,54 @@ else
     }
 fi
 
-NAME=Ajenti
-PIDFILE=/var/run/ajenti.pid
+SNAME=Ajenti
+PROG=/usr/bin/$SNAME
 
-case "\$1" in
-    start)
-        echo "Starting \$NAME:"
-        export LC_CTYPE=en_US.UTF8
 
-        if pidofproc -p \$PIDFILE \$PANEL > /dev/null; then
-            log_failure "already running"
-            exit 1
-        fi
-        if \$DAEMON -d ; then
-            log_success "started"
-        else
-            log_failure "failed"
-        fi
-        ;;
-    stop)
-        echo "Stopping \$NAME:"
-        if pidofproc -p \$PIDFILE \$PANEL > /dev/null; then
-            killproc -p \$PIDFILE \$PANEL
-            /bin/rm -rf \$PIDFILE
-            log_success "stopped"
-        else
-           log_failure "not running"
-        fi
-        ;;
-    restart)
-        \$0 stop && sleep 2 && \$0 start
-        ;;
-    status)
-        if pidofproc -p \$PIDFILE \$PANEL > /dev/null; then
-            log_success "\$NAME is running"
-        else
-            log_success "\$NAME is not running"
-        fi
-        ;;
-    *)
-        echo "Usage: \$0 {start|stop|restart|status}"
-        exit 1
-esac
-
-exit 0
-EOF
-        chmod +x $INITSCRIPT
-        $INITSCRIPT start
+# start function
+start() {
+    #check the daemon status first
+    if [ -f /var/lock/subsys/$SNAME ]
+    then
+        echo "$SNAME is already started!"
+        exit 0;
+    else
+        echo $"Starting $SNAME ..."
+        python3 $PROG &
+        [ $? -eq 0 ] && touch /var/lock/subsys/$SNAME
+        echo $"$SNAME started."
+        exit 0;
     fi
-fi
+}
+
+#stop function
+stop() {
+    echo "Stopping $SNAME ..."
+    pid=`ps -ef | grep '[p]ython $PROG' | awk '{ print $2 }'`
+    [ "$pid"X != "X" ] && kill $pid
+    rm -rf /var/lock/subsys/$SNAME
+}
+
+case "$1" in
+start)
+  start
+  ;;
+stop)
+  stop
+  ;;
+reload|restart)
+  stop
+  start
+  ;;
+status)
+  pid=`ps -ef | grep '[p]ython $PROG' | awk '{ print $2 }'`
+  if [ "$pid"X = "X" ]; then
+      echo "$SNAME is stoped."
+  else
+      echo "$SNAME (pid $pid) is running..."
+  fi
+  ;;
+*)
+  echo $"\nUsage: $0 {start|stop|restart|status}"
+  exit 1
+esac
