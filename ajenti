@@ -19,26 +19,6 @@ expect daemon
 exec $PANEL -d
 EOF
     start ajenti
-
-else
-    if [ -e /lib/systemd/system ] && which systemctl ; then # systemd
-        cat << EOF > /lib/systemd/system/ajenti.service
-[Unit]
-Description=Ajenti panel
-After=network.target
-
-[Service]
-Type=forking
-PIDFile=/var/run/ajenti.pid
-ExecStart=$PYTHON3 $PANEL -d
-ExecStartPost=/bin/sleep 5
-
-[Install]
-WantedBy=multi-user.target
-EOF
-        systemctl daemon-reload
-        systemctl enable ajenti
-        systemctl start ajenti
     else # sysvinit
         INITSCRIPT=/etc/init.d/ajenti
         cat << EOF > $INITSCRIPT
