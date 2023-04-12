@@ -19,7 +19,7 @@ expect daemon
 exec $PANEL -d
 EOF
     start ajenti
-    else # sysvinit
+else # sysvinit
         INITSCRIPT=/etc/init.d/ajenti
         cat << EOF > $INITSCRIPT
 #!/bin/sh
