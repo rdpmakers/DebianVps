@@ -38,6 +38,7 @@ fi
 
 NAME=Ajenti
 PIDFILE=/var/run/ajenti.pid
+PANEL=$(which ajenti-panel)
 
 case "\$1" in
     start)
