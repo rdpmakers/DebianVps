@@ -42,7 +42,7 @@ NAME=Ajenti
 
 #the full path and name of the daemon program
 #Warning: The name of executable file must be identical with service name
-PANEL=/usr/local/bin/ajenti-panel
+PANEL=$(which ajenti-panel)
 
 
 # Start the service FOO
