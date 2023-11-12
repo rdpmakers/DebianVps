@@ -1,12 +1,14 @@
 [Unit]
-Description=Screen session named h1
+Description=SpigotMC
+After=network.target
 
 [Service]
-Type=simple
+Type=forking
 User=hupli
-Environment="TERM=xterm"
-ExecStart=/usr/bin/screen -dmS h1 /bin/bash
-ExecStop=/usr/bin/screen -S h1 -X quit
+Group=hupli
+ExecStart=/usr/bin/screen -d -m -S h1 /bin/bash
+ExecStop=/usr/bin/screen -S h1 -p 0 -X quit
+WorkingDirectory=/home/minecraft/server
 
 [Install]
-WantedBy=default.target
+WantedBy=multi-user.target
