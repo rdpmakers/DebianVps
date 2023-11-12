@@ -1,5 +1,5 @@
 [Unit]
-Description=SpigotMC
+Description=Pro h1 screen
 After=network.target
 
 [Service]
