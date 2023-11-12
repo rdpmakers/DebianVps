@@ -1,0 +1,12 @@
+[Unit]
+Description=Screen session named h1
+
+[Service]
+Type=simple
+User=hupli
+Environment="TERM=xterm"
+ExecStart=/usr/bin/screen -dmS h1 /bin/bash
+ExecStop=/usr/bin/screen -S h1 -X quit
+
+[Install]
+WantedBy=default.target
