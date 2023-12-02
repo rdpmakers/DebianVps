@@ -1,0 +1,36 @@
+#!/bin/bash
+### BEGIN INIT INFO
+# Provides:          wssh_service
+# Required-Start:    $local_fs $remote_fs $network $syslog
+# Required-Stop:     $local_fs $remote_fs $network $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Start wssh in a screen session
+### END INIT INFO
+
+SCREEN_NAME="wssh"
+WSSH_CMD="/usr/local/bin/wssh --address='172.17.0.26' --port=8080"
+
+case "$1" in
+    start)
+        echo "Starting wssh..."
+        su -c "screen -dmS $SCREEN_NAME $WSSH_CMD" root
+        ;;
+    stop)
+        echo "Stopping wssh..."
+        screen -S $SCREEN_NAME -X stuff "^C"
+        sleep 1
+        screen -S $SCREEN_NAME -X quit
+        ;;
+    restart)
+        $0 stop
+        sleep 1
+        $0 start
+        ;;
+    *)
+        echo "Usage: $0 {start|stop|restart}"
+        exit 1
+        ;;
+esac
+
+exit 0
