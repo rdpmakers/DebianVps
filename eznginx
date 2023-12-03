@@ -26,9 +26,9 @@ set -e
 case "$1" in
     start)
         echo "Starting $DESC"
-        $DAEMON -t
-        sleep 1
         $DAEMON 
+        sleep 1
+        $DAEMON -t
         ;;
     stop)
         echo "Stopping $DESC"
