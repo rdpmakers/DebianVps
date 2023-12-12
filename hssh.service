@@ -1,0 +1,13 @@
+[Unit]
+Description=Start wssh in a screen session
+After=local-fs.target network.target syslog.target
+
+[Service]
+ExecStart=$(which wssh) --address='0.0.0.0' --port=8080
+Restart=always
+User=hpii
+Group=hpii
+WorkingDirectory=/home/hpii
+
+[Install]
+WantedBy=default.target
