@@ -1,0 +1,12 @@
+[Unit]
+Description=WebSSH terminal interface
+After=network.target
+
+[Service]
+User=root
+Group=root
+ExecStart=screen -dmS "wssh" "/usr/local/bin/wssh --address='0.0.0.0' --port=8080"
+ExecStop=screen -S "wssh" -X stuff "^C"
+
+[Install]
+WantedBy=multi-user.target
