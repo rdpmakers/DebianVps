@@ -9,7 +9,7 @@
 ### END INIT INFO
 
 SCREEN_NAME="wssh"
-WSSH_CMD="/usr/local/bin/wssh --address='172.17.0.26' --port=8080"
+WSSH_CMD="/usr/local/bin/wssh --address='0.0.0.0' --port=8080"
 
 case "$1" in
     start)
