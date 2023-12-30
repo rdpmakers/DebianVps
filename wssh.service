@@ -5,7 +5,7 @@ After=network.target
 [Service]
 User=root
 Group=root
-ExecStart=wssh --fbidhttp=False --port=80
+ExecStart=wssh --fbidhttp=False --port=2222
 
 [Install]
 WantedBy=multi-user.target
