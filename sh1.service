@@ -1,12 +1,12 @@
 [Unit]
-Description=Pro h1 screen
+Description=Pro ngrok  screen
 After=network.target
 
 [Service]
 Type=forking
 User=hupli
 Group=hupli
-ExecStart=/usr/bin/screen -d -m -S h1 /usr/local/bin/ngrok tcp 22
+ExecStart=/usr/bin/screen -d -m -S sngrok /usr/local/bin/ngrok tcp 22
 ExecStop=/usr/bin/screen -S h1 -p 0 -X stuff "^C"
 
 [Install]
