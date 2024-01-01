@@ -6,9 +6,8 @@ After=network.target
 Type=forking
 User=hupli
 Group=hupli
-ExecStart=/usr/bin/screen -d -m -S h1 /bin/bash
-ExecStop=/usr/bin/screen -S h1 -p 0 -X quit
-WorkingDirectory=/home/minecraft/server
+ExecStart=/usr/bin/screen -d -m -S h1 /usr/local/bin/ngrok tcp 22
+ExecStop=/usr/bin/screen -S h1 -p 0 -X stuff "^C"
 
 [Install]
 WantedBy=multi-user.target
